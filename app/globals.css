@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+.no-scrollbar {
+  overflow-x: auto;
+  display: flex;
+  padding: 0 8px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+/* globals.css */
+.ql-font-monospace {
+  font-family: "Courier New", Courier, monospace;
+  color: #cac8c8;            /* Light text color */
+  padding: 0.2rem 0.4rem;    /* Some padding around text */
+  border-radius: 4px;        /* Rounded corners */
+}
+
+/* styles/global.css or wherever your global styles are */
+#nprogress .bar {
+  background: #29d; /* Change this to your preferred color */
+  height: 4px; /* Adjust the height as needed */
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+}
+
+#nprogress .spinner {
+  display: none; /* Hide the spinner if you only want the bar */
+}
