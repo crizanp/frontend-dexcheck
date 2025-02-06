@@ -48,7 +48,7 @@ export default function PumpListingPage() {
 
     try {
       const response = await axios.get(
-        "https://dextools1jsseuer32das3.vercel.app/api/coins/all"
+        "http://localhost:5000/api/coins/all"
       );
       if (response.status === 200) {
         const { activeTokens, completedTokens } = response.data;
@@ -221,11 +221,11 @@ export default function PumpListingPage() {
       <div className="mb-12 max-w-6xl mx-auto text-center relative">
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-r from-purple-400 to-pink-300 opacity-10 blur-3xl" />
         <h1 className="text-4xl md:text-5xl font-bold mb-4 relative z-10">
-          <span className="bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
-            ✨ Trending MEME Tokens
+          <span className="text-black bg-clip-text">
+            ✨ Explore MEME Tokens
           </span>
         </h1>
-        <p className="text-lg text-purple-700/80 mb-6 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Discover the hottest MEME tokens in real-time. Explore active rocketships 🚀 and legendary moon missions 🌕
         </p>
       </div>

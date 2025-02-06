@@ -31,7 +31,7 @@ export default function GraduateTokensPage() {
     setError(null);
     try {
       const response = await axios.get(
-        "https://advanced-api-v2.pump.fun/coins/about-to-graduate"
+        "http://localhost:5000/api/coins/atg/about-to-end"
       );
       setTokens(response.data);
     } catch (err) {
