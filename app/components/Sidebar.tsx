@@ -40,7 +40,13 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       >
         <div className="flex justify-between items-center">
           {isOpen && (
-            <img src="/images/dex.png" alt="DexCheck Logo" className="h-20 w-auto" />
+            <Image 
+  src="/images/dex.png" 
+  alt="DexCheck Logo" 
+  layout="intrinsic" 
+  width={120} 
+  height={40} 
+/>
           )}
          <button onClick={toggleSidebar} className="transition-transform duration-300">
   {isOpen ? (
