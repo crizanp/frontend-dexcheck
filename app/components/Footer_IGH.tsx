@@ -14,128 +14,118 @@ export default function Footer() {
     return (
         <>
             <footer className="footer sm:mb-0 mb-4 mt-4">
-                <div className="footer-content">
-                    <div className="footer-logo">
-                        <a href="https://dexcheck.fun">
-
-                            <img src="/images/Logo.png" alt="Logo" className="logo" />
-                        </a>
+            <div className="footer-content">
+                <div className="footer-logo">
+                    <a href="https://dexcheck.fun">
+                        <img src="/images/Logo.png" alt="Logo" className="logo" />
+                    </a>
+                </div>
+                <div className="footer-center">
+                    <div className="footer-links">
+                        <button onClick={() => openModal("partnership")} className="footer-link">
+                            <FaHandshake /> Partnership
+                        </button>
+                        <button onClick={() => openModal("advertisement")} className="footer-link">
+                            <FaBullhorn /> Advertising
+                        </button>
+                        <button onClick={() => openModal("about")} className="footer-link">
+                            <FaInfoCircle /> About Us
+                        </button>
                     </div>
-                    <div className="footer-center">
-                        <div className="footer-links">
-                            <button onClick={() => openModal("partnership")} className="footer-link"><FaHandshake /> Partnership</button>
-                            <button onClick={() => openModal("advertisement")} className="footer-link"><FaBullhorn /> Advertising</button>
-                            <button onClick={() => openModal("about")} className="footer-link"><FaInfoCircle /> About Us</button>
-                        </div>
-                        <div className="footer-copy mt-3">
-                            <span>© {new Date().getFullYear()} </span>
-                            <a href="https://ighgroup.io" target="_blank" rel="noopener noreferrer" className="footer-link">IGHGROUP</a>
-                            <span>. All rights reserved.</span>
-                        </div>
-
+                    <div className="footer-copy">
+                        <span>© {new Date().getFullYear()} </span>
+                        <a href="https://dexcheck.fun" target="_blank" rel="noopener noreferrer" className="footer-link">Dexcheck.Fun</a>
+                        <span>. All rights reserved.</span>
                     </div>
                 </div>
-                <style jsx>{`
-        .footer {
-            width: 100%;
-            background-color: #1c273f;
-            color: white;
-            padding: 0.75rem;
-            text-align: center;
-            border-radius: 0.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Ensures vertical centering */
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .footer-logo {
-            
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .logo {
-            width: 120px;
-            height: auto;
-        }
-
-        .footer-center {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .footer-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: color 0.3s, transform 0.3s;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .footer-link:hover {
-            color: White;
-            transform: scale(1.05);
-        }
-
-        .footer-copy {
-            font-size: 0.9rem;
-            color: #aaaaaa;
-            display: flex;
-            gap: 0.3rem;
-            flex-wrap: nowrap;
-            justify-content: center;
-            margin-top: 0.5rem; /* Space between links and copyright */
-        }
-
-        @media (max-width: 600px) {
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .footer-logo {
-                margin-bottom: 1rem;
-                justify-content: center;
-            }
-
-            .footer-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .footer-copy {
-                font-size: 0.8rem;
-            }
-        }
-    `}</style>
+            </div>
+            <style jsx>{`
+                .footer {
+                    width: 100%;
+                    background: #f8f9fa;
+                    color: #333;
+                    padding: 1rem;
+                    text-align: center;
+                    border-radius: 0.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+                }
+                .footer-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    max-width: 1200px;
+                }
+                .footer-logo {
+                    display: flex;
+                    align-items: center;
+                }
+                .logo {
+                    width: 120px;
+                    height: auto;
+                }
+                .footer-center {
+                    flex: 2;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                }
+                .footer-links {
+                    display: flex;
+                    gap: 2rem;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    font-size: 1rem;
+                }
+                .footer-link {
+                    color: #333;
+                    text-decoration: none;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    transition: color 0.3s, transform 0.3s;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                .footer-link:hover {
+                    color:rgb(9, 184, 67);
+                    transform: scale(1.05);
+                }
+                .footer-copy {
+                    font-size: 0.9rem;
+                    color: #555;
+                    display: flex;
+                    gap: 0.3rem;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    margin-top: 0.5rem;
+                }
+                @media (max-width: 600px) {
+                    .footer-content {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1rem;
+                    }
+                    .footer-logo {
+                        margin-bottom: 1rem;
+                        justify-content: center;
+                    }
+                    .footer-links {
+                        gap: 1rem;
+                        font-size: 0.9rem;
+                    }
+                    .footer-copy {
+                        font-size: 0.8rem;
+                    }
+                }
+            `}</style>
             </footer>
 
 
@@ -182,20 +172,21 @@ export default function Footer() {
                                 </p>
                             </>
                         )}
-                        {modalContent === "about" && (
-                            <>
-                                <h2>About Us</h2>
-                                <p>
-                                    Our mission is to empower Web3 projects with strategic marketing solutions. Established in 2021, we provide investors, project owners, and service providers with effective strategies that drive high ROI and lasting impact.
-                                </p>
-                                <p>
-                                    Our ecosystem includes advanced tools to track and research token details, news, and trends in the crypto space.
-                                </p>
-                                <p>
-                                    With a reliable team, goal-oriented strategies, and deep Web3 expertise, we’re here to support your journey in the decentralized space.
-                                </p>
-                            </>
-                        )}
+                       {modalContent === "about" && (
+    <>
+        <h2>About Us</h2>
+        <p>
+            We make it easy for investors to research meme tokens and stay updated on the latest trends, especially on platforms like Pump.fun and Moonshot. Our goal is to simplify the process, giving you real-time insights to spot potential opportunities.
+        </p>
+        <p>
+            Our token unlocks premium features like in-depth market analytics, early alerts on trending tokens, and community-driven governance. This ensures every investor has the best tools for making informed decisions.
+        </p>
+        <p>
+            We generate revenue through premium memberships, token promotions, and exclusive research reports. This keeps our platform growing, improving, and delivering top-tier insights for the meme token space.
+        </p>
+    </>
+)}
+
                         <div className="modal-buttons">
                             <button onClick={closeModal} className="modal-button close-button">Close</button>
                             {modalContent !== "about" && (

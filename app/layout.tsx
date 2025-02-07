@@ -109,7 +109,7 @@ export default function RootLayout({
           }}
         ></script>
       </head>
-      <body className="bg-gradient-to-br from-purple-50 to-pink-50 text-white">
+      <body className="bg-gradient-to-br from-green-50 to-white text-white">
         <AdvertisementProvider>
           <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
           <main

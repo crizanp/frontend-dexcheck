@@ -8,9 +8,10 @@ import {
   AiOutlineRise,
   AiOutlineTrophy,
 } from "react-icons/ai";
-import { BsShieldCheck, BsGraphUp } from "react-icons/bs";
+import { BsShieldCheck } from "react-icons/bs";
 import { FaRegChartBar } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -33,28 +34,32 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     <>
       {/* Sidebar for large screens */}
       <div
-        className={`fixed top-0 left-0 h-screen bg-gray-800 z-40 p-4 transition-all duration-300 ${
+        className={`fixed top-0 left-0 h-screen bg-white z-40 p-4 transition-all duration-300 ${
           isOpen ? "w-64" : "w-20"
-        } hidden lg:flex flex-col border-r border-gray-700`}
+        } hidden lg:flex flex-col border-r border-gray-300 shadow-lg`}
       >
         <div className="flex justify-between items-center">
           {isOpen && (
-            <h2 className="text-white font-bold text-xl">DEXCHECK.FUN</h2>
+            <img src="/images/dex.png" alt="DexCheck Logo" className="h-20 w-auto" />
           )}
-          <button
-            onClick={toggleSidebar}
-            className={`text-white transition-transform duration-300 ${
-              !isOpen ? "text-4xl transform rotate-180" : "text-2xl"
-            }`}
-          >
-            <AiOutlineMenu />
-          </button>
+         <button onClick={toggleSidebar} className="transition-transform duration-300">
+  {isOpen ? (
+    <AiOutlineMenu className="text-green-600 text-2xl" />
+  ) : (
+    <img
+      src="/images/uiui-removebg-preview.png"
+      alt="Menu"
+      className="h-10 w-auto"
+    />
+  )}
+</button>
+
         </div>
         <nav className="flex flex-col mt-6 space-y-6">
           <Link
             href="/"
-            className={`flex items-center text-white p-3 rounded-md ${
-              isActive("/") ? "bg-gray-700" : "hover:bg-gray-700"
+            className={`flex items-center text-gray-800 p-3 rounded-md ${
+              isActive("/") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
             }`}
           >
             <AiOutlineHome className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
@@ -64,8 +69,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/dex-check"
-            className={`flex items-center text-white p-3 rounded-md ${
-              isActive("/dex-check") ? "bg-gray-700" : "hover:bg-gray-700"
+            className={`flex items-center text-gray-800 p-3 rounded-md ${
+              isActive("/dex-check") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
             }`}
           >
             <BsShieldCheck className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
@@ -75,8 +80,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/latest"
-            className={`flex items-center text-white p-3 rounded-md ${
-              isActive("/latest") ? "bg-gray-700" : "hover:bg-gray-700"
+            className={`flex items-center text-gray-800 p-3 rounded-md ${
+              isActive("/latest") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
             }`}
           >
             <AiOutlineFire className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
@@ -86,8 +91,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/pump"
-            className={`flex items-center text-white p-3 rounded-md ${
-              isActive("/pump") ? "bg-gray-700" : "hover:bg-gray-700"
+            className={`flex items-center text-gray-800 p-3 rounded-md ${
+              isActive("/pump") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
             }`}
           >
             <FaRegChartBar className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
@@ -97,8 +102,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/hot_pump"
-            className={`flex items-center text-white p-3 rounded-md ${
-              isActive("/getting-hotter") ? "bg-gray-700" : "hover:bg-gray-700"
+            className={`flex items-center text-gray-800 p-3 rounded-md ${
+              isActive("/getting-hotter") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
             }`}
           >
             <AiOutlineRise className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
@@ -108,8 +113,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/editorialpick"
-            className={`flex items-center text-white p-3 rounded-md ${
-              isActive("/editorialpick") ? "bg-gray-700" : "hover:bg-gray-700"
+            className={`flex items-center text-gray-800 p-3 rounded-md ${
+              isActive("/editorialpick") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
             }`}
           >
             <AiOutlineTrophy
@@ -123,18 +128,18 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       </div>
 
       {/* Bottom navbar for medium and small screens */}
-      <div className="lg:hidden fixed bottom-0 left-0 w-full bg-gray-800 p-2 flex justify-around items-center z-50 h-16 border-t border-gray-700">
+      <div className="lg:hidden fixed bottom-0 left-0 w-full bg-white p-2 flex justify-around items-center z-50 h-16 border-t border-gray-300">
         <button
           onClick={() => setShowMorePopup(!showMorePopup)}
-          className="text-white flex flex-col items-center hover:text-blue-300"
+          className="text-green-600 flex flex-col items-center hover:text-green-500"
         >
           <AiOutlineMenu className="text-2xl pb-2" />
           <span className="text-xs">More</span>
         </button>
         <Link
           href="/"
-          className={`text-white flex flex-col items-center ${
-            isActive("/") ? "text-blue-400" : "hover:text-blue-300"
+          className={`text-gray-800 flex flex-col items-center ${
+            isActive("/") ? "text-green-600" : "hover:text-green-600"
           }`}
         >
           <AiOutlineHome className="text-2xl pb-2" />
@@ -142,8 +147,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </Link>
         <Link
           href="/dex-check"
-          className={`text-white flex flex-col items-center ${
-            isActive("/dex-check") ? "text-blue-400" : "hover:text-blue-300"
+          className={`text-gray-800 flex flex-col items-center ${
+            isActive("/dex-check") ? "text-green-600" : "hover:text-green-600"
           }`}
         >
           <BsShieldCheck className="text-2xl pb-2" />
@@ -151,8 +156,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </Link>
         <Link
           href="/latest"
-          className={`text-white flex flex-col items-center ${
-            isActive("/latest") ? "text-blue-400" : "hover:text-blue-300"
+          className={`text-gray-800 flex flex-col items-center ${
+            isActive("/latest") ? "text-green-600" : "hover:text-green-600"
           }`}
         >
           <AiOutlineFire className="text-2xl pb-2" />
@@ -160,8 +165,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </Link>
         <Link
           href="/pump"
-          className={`text-white flex flex-col items-center ${
-            isActive("/pump") ? "text-blue-400" : "hover:text-blue-300"
+          className={`text-gray-800 flex flex-col items-center ${
+            isActive("/pump") ? "text-green-600" : "hover:text-green-600"
           }`}
         >
           <FaRegChartBar className="text-2xl pb-2" />
@@ -171,17 +176,17 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
       {/* Popup for Additional Menu */}
       {showMorePopup && (
-        <div className="fixed bottom-16 left-2 bg-gray-700 text-white p-4 rounded-lg shadow-lg z-50 w-40">
+        <div className="fixed bottom-16 left-2 bg-green-100 text-green-600 p-4 rounded-lg shadow-lg z-50 w-40">
           <Link
             href="/hot_pump"
-            className="block mb-2 text-sm hover:text-blue-300"
+            className="block mb-2 text-sm hover:text-green-500"
             onClick={() => setShowMorePopup(false)} // Close popup on click
           >
             Getting Hotter
           </Link>
           <Link
             href="/editorialpick"
-            className="block text-sm hover:text-blue-300"
+            className="block text-sm hover:text-green-500"
             onClick={() => setShowMorePopup(false)} // Close popup on click
           >
             Best Picks

@@ -31,7 +31,7 @@ export default function GraduateTokensPage() {
     setError(null);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/coins/atg/about-to-end"
+        "https://dextools1jsseuer32das3.vercel.app/api/coins/atg/about-to-end"
       );
       setTokens(response.data);
     } catch (err) {

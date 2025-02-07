@@ -18,72 +18,40 @@ export default function Advertisement() {
   }
 
   return (
-    <div className="advertisement-container pb-4">
-      <div className="announcement-bar">
-        dexcheck.fun token will be live soon
+    <div className="advertisement-container flex flex-col items-center pb-4">
+      <div className="announcement-bar text-center p-2 rounded-md font-semibold">
+        CA: $DEXC Launching soon on pump.fun
       </div>
       <a
         href={advertisement.linkUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="advertisement-link"
+        className="flex justify-center w-full mt-2"
       >
-        <div className="image-container">
+        <div className="relative inline-block">
           <img
             src={advertisement.imageUrl}
             alt="Advertisement"
-            className="advertisement-image"
+            className="advertisement-image rounded-lg shadow-lg"
           />
-          <div className="ads-label">
-            <span>Ads</span>
+          <div className="ads-label absolute top-2 right-2 bg-white text-green-700 text-xs font-bold px-2  rounded border border-green-300">
+            Ads
           </div>
         </div>
       </a>
 
       <style jsx>{`
-        .advertisement-container {
-          margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-        }
-
         .announcement-bar {
-          background-color: rgba(0, 0, 0, 0.9);
-          color: white;
-          font-size: 0.8rem;
-          font-weight: bold;
-          text-align: center;
-          width: 100%;
-          padding: 0.5rem 0.7rem;
-          border-radius: 0.5rem;
-          margin-bottom: 1rem;
-        }
-
-        .image-container {
-          position: relative;
-          width: 100%;
+          background-color: #f0fdf4;
+          color: #14532d;
+          border: 1px solid #bbf7d0;
+          width: max-content;
         }
 
         .advertisement-image {
-          max-height: 200px;
-          object-fit: cover;
-          border-radius: 0.5rem;
-          width: 100%;
-        }
-
-        .ads-label {
-          position: absolute;
-          top: 8px;
-          right: 8px;
-          background-color: rgba(0, 0, 0, 0.8);
-          color: white;
-          font-size: 0.6rem;
-          padding: 0.2rem 0.4rem;
-          border-radius: 0.3rem;
-          display: flex;
-          align-items: center;
+          border: 1px solid #e5e7eb;
+          max-width: 100%;
+          display: block;
         }
       `}</style>
     </div>

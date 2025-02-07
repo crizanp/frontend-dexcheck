@@ -43,29 +43,41 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-gray-800 text-white p-6 rounded-lg mt-12">
-      <h2 className="text-3xl font-bold text-green-400 text-center mb-6">
-        FAQ
+    <section className="bg-white p-6 rounded-xl mt-12 shadow-sm border border-gray-200">
+      <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+        Frequently Asked Questions
       </h2>
       <div className="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className={`border border-green-400 rounded-lg overflow-hidden transition-all duration-300 ${
-              openIndex === index ? "bg-gray-800" : ""
-            }`}
+            className="border border-gray-200 rounded-lg transition-all duration-300 hover:border-green-200"
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left p-4 flex justify-between items-center bg-gray-700 text-green-400 hover:bg-green-600 transition-all"
+              className="w-full text-left p-4 flex justify-between items-center bg-white hover:bg-green-50 transition-colors rounded-lg"
             >
-              <span className="font-bold">{faq.question}</span>
-              <span className="text-xl">
-                {openIndex === index ? "-" : "+"}
+              <span className="font-medium text-gray-900">{faq.question}</span>
+              <span className={`text-green-600 transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>
+                <svg 
+                  className="w-6 h-6"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d={openIndex === index ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} 
+                  />
+                </svg>
               </span>
             </button>
             {openIndex === index && (
-              <div className="p-4 text-gray-300">{faq.answer}</div>
+              <div className="p-4 pt-2 text-gray-600 bg-green-50 rounded-b-lg border-t border-green-100">
+                {faq.answer}
+              </div>
             )}
           </div>
         ))}
