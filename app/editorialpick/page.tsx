@@ -211,10 +211,10 @@ export default function MemeTokensPage() {
   );
 
   return (
-    <main className="min-h-screen py-12 px-6">
+    <main className="min-h-screen py-12">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-green-600">
+          <h1 className="text-4xl font-bold text-green-600  px-6">
             🎉 Editor's Pick: 1000X Meme Tokens
           </h1>
           <p className="text-gray-600 mt-4">
@@ -222,13 +222,13 @@ export default function MemeTokensPage() {
           </p>
         </header>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
         {predefinedTokens.map((token) => renderTokenCard(token))}
         </div>
 
         <section className="mt-20">
           <h2 className="text-3xl font-bold text-green-600 mb-8 text-center">🔥 Top Meme Tokens on Pump.fun</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
           {pumpTokens.map((token) => renderPumpTokenCard(token))}
           </div>
           {loading ? (
