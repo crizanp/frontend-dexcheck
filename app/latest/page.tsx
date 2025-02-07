@@ -134,7 +134,7 @@ export default function DexTrackerPage() {
     return (
       <div
         key={token.tokenAddress}
-        className="relative rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 group border border-gray-200 hover:border-green-400"
+        className="relative bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 group border border-gray-200 hover:border-green-400"
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-4 flex-1">
