@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import { FaHandshake, FaBullhorn, FaInfoCircle } from "react-icons/fa";
 
@@ -17,8 +18,13 @@ export default function Footer() {
             <div className="footer-content">
                 <div className="footer-logo">
                     <a href="https://dexcheck.fun">
-                        <img src="/images/Logo.png" alt="Logo" className="logo" />
-                    </a>
+<Image
+              src="/images/DEX.png"
+              alt="DexCheck Logo"
+              layout="intrinsic"
+              width={180}
+              height={80}
+            />                    </a>
                 </div>
                 <div className="footer-center">
                     <div className="footer-links">
@@ -42,7 +48,7 @@ export default function Footer() {
             <style jsx>{`
                 .footer {
                     width: 100%;
-                    background: #f8f9fa;
+                    background:rgb(255, 255, 255);
                     color: #333;
                     padding: 1rem;
                     text-align: center;
