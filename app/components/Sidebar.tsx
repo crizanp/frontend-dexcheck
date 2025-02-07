@@ -9,7 +9,7 @@ import {
   AiOutlineTrophy,
 } from "react-icons/ai";
 import { BsShieldCheck } from "react-icons/bs";
-import { FaRegChartBar } from "react-icons/fa";
+import { FaRegChartBar, FaTelegramPlane, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -58,7 +58,6 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               />
             )}
           </button>
-
         </div>
         <nav className="flex flex-col mt-6 space-y-6">
           <Link
@@ -124,6 +123,26 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             </span>
           </Link>
         </nav>
+
+        {/* Footer with Telegram and Twitter icons */}
+        <div className="mt-auto flex justify-center space-x-4">
+          <a
+            href="https://t.me/your_telegram_channel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-800 hover:text-green-600"
+          >
+            <FaTelegramPlane className="text-2xl" />
+          </a>
+          <a
+            href="https://twitter.com/your_twitter_channel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-800 hover:text-green-600"
+          >
+            <FaTwitter className="text-2xl" />
+          </a>
+        </div>
       </div>
 
       {/* Bottom navbar for medium and small screens */}
