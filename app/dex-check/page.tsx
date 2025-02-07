@@ -368,37 +368,38 @@ export default function DexCheckerPage() {
     }
   };
   return (
-    <main className="flex flex-col items-center min-h-screen text-white ">
-      <div className="w-full md:w-4/4 lg:w-4/4 p-4 md:p-6 bg-gray-700 rounded-lg shadow-lg">
-        <h1 className="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-6">
-          DEX Screener Paid Checker
+    <main className="flex flex-col items-center min-h-screen text-gray-900 bg-white">
+      <div className="w-full max-w-4xl p-4 md:p-6 bg-white rounded-xl shadow-lg">
+        <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 text-green-700">
+          DEX Verification Checker
         </h1>
-        <div className="flex flex-col items-center bg-gray-800 p-3 md:p-4 rounded-lg space-y-3">
-          {/* Search Bar with responsive padding and size */}
-          <div className="flex items-center bg-gray-700 rounded-full px-3 py-2 md:px-4 md:py-3 w-full md:w-3/4 lg:w-3/4">
+        
+        <div className="flex flex-col items-center bg-gray-50 p-4 rounded-xl space-y-4 border border-gray-200">
+          <div className="flex items-center bg-white rounded-full px-4 py-3 w-full shadow-sm border border-gray-300">
             <input
               type="text"
-              placeholder="Enter token address"
+              placeholder="Enter token address..."
               value={mintInput}
               onChange={(e) => setmintInput(e.target.value)}
-              onKeyPress={(event) =>
-                event.key === "Enter" && checkDexPayment(mintInput)
-              }
-              className="bg-transparent outline-none text-white placeholder-gray-300 flex-grow text-sm md:text-lg"
+              onKeyPress={handleKeyPress}
+              className="bg-transparent outline-none text-gray-900 placeholder-gray-400 flex-grow text-base"
             />
-            <button onClick={() => checkDexPayment(mintInput)}>
-              <AiOutlineSearch className="text-2xl md:text-3xl text-white" />
+            <button 
+              onClick={() => checkDexPayment(mintInput)}
+              className="p-2 bg-green-600 rounded-full hover:bg-green-700 transition-colors"
+            >
+              <AiOutlineSearch className="text-xl text-white" />
             </button>
           </div>
           {/* Centered Popular Searches */}
-          <div className="text-center text-gray-400 text-sm md:text-base mt-2 w-full px-2">
+          <div className="text-center text-gray-600 text-sm w-full">
             <p>Popular Searches:</p>
-            <div className="flex justify-start md:justify-center overflow-x-auto no-scrollbar space-x-2 my-2 w-full px-2">
+            <div className="flex justify-center flex-wrap gap-2 my-2">
               {popularTokens.map((token) => (
                 <button
                   key={token}
                   onClick={() => handlePopularSearchClick(token)}
-                  className="bg-gray-600 text-gray-300 px-2 py-1 md:px-3 md:py-2 rounded-md hover:bg-gray-500 flex-shrink-0 whitespace-nowrap"
+                  className="bg-white text-gray-700 px-3 py-1.5 rounded-lg hover:bg-green-50 border border-gray-200 transition-colors text-xs"
                 >
                   {token.slice(0, 4)}...{token.slice(-4)}
                 </button>
@@ -409,7 +410,7 @@ export default function DexCheckerPage() {
       </div>
       {loading && (
         <div className="flex items-center mt-6 justify-center">
-          <PuffLoader color="#36D7B7" size={60} />
+          <PuffLoader color="#16a34a" size={60} />
         </div>
       )}
       <div ref={outputRef}>
@@ -433,7 +434,7 @@ export default function DexCheckerPage() {
                 onError={() => setIconError(true)}
               />
             ) : isPaid ? (
-              <AiOutlineSmile className="text-4xl sm:text-5xl text-green-500 mt-3 sm:mt-4" />
+              <AiOutlineSmile className="text-4xl sm:text-5xl text-gray-700 mt-3 sm:mt-4" />
             ) : (
               <AiOutlineFrown className="text-4xl sm:text-5xl text-red-500 mt-3 sm:mt-4" />
             )}
@@ -513,7 +514,7 @@ export default function DexCheckerPage() {
                         href={pumpData.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 sm:px-6 py-1 sm:py-2 rounded-lg border-2 border-blue-500 text-blue-500 font-semibold text-xs sm:text-sm hover:bg-blue-500 hover:text-white transition duration-300"
+                        className="px-4 sm:px-6 py-1 sm:py-2 rounded-lg border-2 border-green-500 text-gray-700 font-semibold text-xs sm:text-sm hover:bg-green-500 hover:text-white transition duration-300"
                       >
                         Website
                       </a>
@@ -523,7 +524,7 @@ export default function DexCheckerPage() {
                         href={pumpData.twitter}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 sm:px-6 py-1 sm:py-2 rounded-lg border-2 border-blue-400 text-blue-400 font-semibold text-xs sm:text-sm hover:bg-blue-400 hover:text-white transition duration-300"
+                        className="px-4 sm:px-6 py-1 sm:py-2 rounded-lg border-2 border-green-500 text-gray-700 font-semibold text-xs sm:text-sm hover:bg-green-500 hover:text-white transition duration-300"
                       >
                         Twitter
                       </a>
@@ -533,7 +534,7 @@ export default function DexCheckerPage() {
                         href={pumpData.telegram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 sm:px-6 py-1 sm:py-2 rounded-lg border-2 border-blue-300 text-blue-300 font-semibold text-xs sm:text-sm hover:bg-blue-300 hover:text-white transition duration-300"
+                        className="px-4 sm:px-6 py-1 sm:py-2 rounded-lg border-2 border-green-500 text-gray-700 font-semibold text-xs sm:text-sm hover:bg-green-500 hover:text-white transition duration-300"
                       >
                         Telegram
                       </a>
@@ -555,7 +556,7 @@ CA:${tokenData?.mint || "N/A"}
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center px-6 py-2 rounded-lg border-2 border-blue-500 text-blue-500 font-semibold text-sm hover:bg-blue-500 hover:text-white transition duration-300"
+                          className="flex items-center px-6 py-2 rounded-lg text-gray-700 font-semibold text-sm bg-black text-white hover:bg-green-500 hover:text-white transition duration-300"
                         >
                           <img
                             src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png"
@@ -565,29 +566,27 @@ CA:${tokenData?.mint || "N/A"}
                           Share
                         </a>
                         <a
-                          href={`https://t.me/share/url?url=${encodeURIComponent(
-                            pumpData?.website || "https://dexcheck.fun"
-                          )}&text=${encodeURIComponent(
-                            `🚀 ${pumpData?.name || "N/A"} (${
-                              tokenData?.symbol || "N/A"
-                            }) is now verified on Dexcheck.fun!`
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center px-6 py-2 rounded-lg border-2 border-blue-300 text-blue-300 font-semibold text-sm hover:bg-blue-300 hover:text-white transition duration-300"
-                        >
-                          <img
-                            src="https://www.cdnlogo.com/logos/t/39/telegram.svg"
-                            alt="Forward to Telegram"
-                            className="w-6 h-6 mr-2"
-                          />
-                          Forward
-                        </a>
+  href={`https://t.me/share/url?url=${encodeURIComponent(
+    pumpData?.website || "https://dexcheck.fun"
+  )}&text=${encodeURIComponent(
+    `🚀 ${pumpData?.name || "N/A"} (${tokenData?.symbol || "N/A"}) is now verified on Dexcheck.fun!`
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center px-6 py-2 rounded-lg bg-[#0088cc] text-white font-semibold text-sm hover:bg-[#0077b5] transition duration-300"
+>
+  <img
+    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/telegram-white-icon.png"
+    alt="Forward to Telegram"
+    className="w-6 h-6 mr-2"
+  />
+  Forward
+</a>
+
                       </>
                     )}
                   </div>
                   {/* Action Button */}
-                  {/* Buttons Section */}
                   <div className="mt-4 w-full">
                     {pumpData?.complete === true ? (
                       <div>
@@ -625,18 +624,16 @@ CA:${tokenData?.mint || "N/A"}
                   </div>
                 </div>
               )}
-            <div className="mt-6 mb-0">
-              <p className="text-xs sm:text-xs text-gray-400">
-                Scanned by{" "}
-                <a
-                  href="https://dexcheck.fun"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:underline"
-                >
-                  DEXCHECK.FUN
-                </a>
-              </p>
+            <div className="mt-6 text-xs text-gray-400">
+              Scanned by{" "}
+              <a
+                href="https://dexcheck.fun"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline"
+              >
+                DEXCHECK.FUN
+              </a>
             </div>
           </motion.div>
         )}

@@ -275,10 +275,10 @@ export default function PumpListingPage() {
       <FAQ />
 
       <Link href="hot_pump" className="fixed bottom-4 right-4 animate-float">
-  <div className="bg-green-600 p-2.5 rounded-full shadow-md text-white text-sm">
-    <span>🚀 Track Trends</span>
-  </div>
-</Link>
+        <div className="bg-green-600 p-2.5 rounded-full shadow-md text-white text-sm">
+          <span>🚀 Track Trends</span>
+        </div>
+      </Link>
 
     </main>
   );

@@ -40,7 +40,7 @@ export default function PumpTracker() {
   const [showCompleted, setShowCompleted] = useState(true);
   const [copiedMint, setCopiedMint] = useState<string | null>(null);
 
-  const pinnedTokenAddress = "59fviq2qoeUzV4Zv8K9R5qGtwzgDbGRn97tjsgtgMCU5";
+  const pinnedTokenAddress = "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump";
 
   useEffect(() => {
     fetchPinnedToken();
@@ -96,13 +96,13 @@ export default function PumpTracker() {
     return (
       <div
         key={token.mint || Math.random()}
-        className={`border border-gray-700 rounded-lg p-4 bg-gray-800 flex flex-row items-center gap-4 hover:scale-105 transition transform duration-300 ease-in-out ${
+        className={`border border-green-500 rounded-lg p-4 bg-white flex flex-row items-center gap-4 hover:scale-105 transition transform duration-300 ease-in-out ${
           isPinned ? "relative" : ""
         }`}
       >
         {/* Pinned Badge */}
         {isPinned && (
-          <div className="absolute top-2 left-2 text-green-400">
+          <div className="absolute top-2 left-2 text-green-600">
             <FaThumbtack />
           </div>
         )}
@@ -118,18 +118,18 @@ export default function PumpTracker() {
         <div className="flex-1 flex flex-col">
           {/* Name and Symbol */}
           <div className="flex justify-between items-center">
-            <h3 className="text-lg font-bold text-white">
+            <h3 className="text-lg font-bold text-black">
               {token.name?.length > 12
                 ? `${token.name.slice(0, 10)}...`
                 : token.name?.toUpperCase() || "Unknown"}
             </h3>
-            <p className="text-sm text-gray-400">{token.symbol || "N/A"}</p>
+            <p className="text-sm text-gray-600">{token.symbol || "N/A"}</p>
           </div>
 
           {/* Market Cap */}
-          <p className="text-sm text-gray-200 mt-1">
+          <p className="text-sm text-gray-800 mt-1">
             Market Cap:{" "}
-            <span className="text-green-400">
+            <span className="text-green-600">
               {token.usd_market_cap
                 ? `$${parseFloat(token.usd_market_cap).toLocaleString()}`
                 : "N/A"}
@@ -138,13 +138,13 @@ export default function PumpTracker() {
 
           {/* Links and Comments */}
           <div className="flex items-center justify-between mt-2">
-            <div className="flex gap-3 text-gray-400">
+            <div className="flex gap-3 text-gray-600">
               {token.twitter && (
                 <a
                   href={`https://twitter.com/${token.twitter}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-green-400"
+                  className="hover:text-green-600"
                 >
                   <FaTwitter />
                 </a>
@@ -154,7 +154,7 @@ export default function PumpTracker() {
                   href={token.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-green-400"
+                  className="hover:text-green-600"
                 >
                   <FaExternalLinkAlt />
                 </a>
@@ -164,7 +164,7 @@ export default function PumpTracker() {
                   href={`https://www.geckoterminal.com/solana/pools/${token.radium_pool}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-green-400"
+                  className="hover:text-green-600"
                 >
                   <FaFire />
                 </a>
@@ -173,29 +173,29 @@ export default function PumpTracker() {
                 href={`https://pump.fun/coin/${token.mint}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-green-400"
+                className="hover:text-green-600"
               >
                 <FaGlobe />
               </a>
             </div>
-            <p className="flex items-center gap-1 text-sm text-gray-400">
-              <FaCommentDots className="text-green-400" />
+            <p className="flex items-center gap-1 text-sm text-gray-600">
+              <FaCommentDots className="text-green-600" />
               {token.reply_count || 0}
             </p>
           </div>
 
           {/* Contract Address */}
           <div className="flex items-center mt-2">
-            <span className="text-sm text-gray-400">{truncatedMint}</span>
+            <span className="text-sm text-gray-600">{truncatedMint}</span>
             <button
               onClick={handleCopy}
-              className="ml-2 text-white hover:text-green-400"
+              className="ml-2 text-gray-800 hover:text-green-600"
             >
               <FaCopy />
             </button>
           </div>
           {copiedMint === token.mint && (
-            <span className="text-xs text-green-400 mt-1">Copied!</span>
+            <span className="text-xs text-green-600 mt-1">Copied!</span>
           )}
         </div>
       </div>
@@ -239,8 +239,8 @@ export default function PumpTracker() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white p-2 space-y-8 min-h-screen">
-      <h1 className="text-3xl font-bold text-center text-green-400">
+    <main className="flex flex-col items-center justify-center text-black p-2 space-y-8 min-h-screen">
+      <h1 className="text-3xl font-bold text-center text-green-600">
         PUMP TRACKER
       </h1>
 
@@ -250,7 +250,7 @@ export default function PumpTracker() {
           {/* Refresh Button */}
           <button
             onClick={handleRefresh}
-            className="text-green-400 hover:underline flex items-center gap-2"
+            className="text-green-600 hover:underline flex items-center gap-2"
           >
             <FaSync className={isRefreshing ? "animate-spin" : ""} />
             {!isRefreshing && "Refresh"}
@@ -262,7 +262,7 @@ export default function PumpTracker() {
               <select
                 value={sortOption}
                 onChange={handleSortChange}
-                className="bg-gray-700 text-white text-center text-sm py-2 px-3 sm:pr-6 rounded-lg border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 appearance-none w-auto"
+                className="bg-gray-100 text-black text-center text-sm py-2 px-3 sm:pr-6 rounded-lg border border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none w-auto"
               >
                 <option value="market_cap">Sort by Market Cap</option>
                 <option value="recently_completed">
@@ -271,7 +271,7 @@ export default function PumpTracker() {
                 <option value="token_creation">Sort by Token Creation</option>
               </select>
               {/* Custom dropdown arrow */}
-              <span className="absolute right-0 sm:right-2 top-1/2 transform -translate-y-1/2 text-green-400 pointer-events-none">
+              <span className="absolute right-0 sm:right-2 top-1/2 transform -translate-y-1/2 text-green-600 pointer-events-none">
                 ▼
               </span>
             </div>
@@ -281,7 +281,7 @@ export default function PumpTracker() {
         {/* Toggle View Button */}
         <button
           onClick={toggleCompletedView}
-          className="bg-green-400 text-black px-4 py-2 rounded-lg hover:bg-green-500 transition w-full sm:w-auto"
+          className="bg-green-500 text-black px-4 py-2 rounded-lg hover:bg-green-600 transition w-full sm:w-auto"
         >
           <span>
             {showCompleted ? "View New Pump Tokens" : "View Completed Tokens"}
@@ -302,12 +302,12 @@ export default function PumpTracker() {
             {completedTokens.length > 0 ? (
               completedTokens.map((token) => renderTokenCard(token))
             ) : (
-              <p className="text-gray-400">No data available.</p>
+              <p className="text-gray-600">No data available.</p>
             )}
           </div>
           <button
             onClick={loadMore}
-            className="text-green-400 hover:underline mt-6"
+            className="text-green-600 hover:underline mt-6"
           >
             See More
           </button>

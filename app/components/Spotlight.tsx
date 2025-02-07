@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import PuffLoader from "react-spinners/PuffLoader";
-import { FaGlobe, FaTelegram, FaTwitter } from "react-icons/fa";
+import { FaGlobe, FaTelegram, FaTwitter, FaRocket } from "react-icons/fa";
 import FAQ from "./Faqhome";
-
+import Link from "next/link";
 const Spotlight = () => {
   const [spotlights, setSpotlights] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -88,161 +88,145 @@ const Spotlight = () => {
   const renderTokenCard = (token: any, index: number) => (
     <div
       key={token.address}
-      className="relative border border-green-400 rounded-lg p-4 shadow-lg bg-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col gap-4 items-start w-full"
+      className="relative bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 group border border-gray-200 hover:border-green-400"
     >
       {/* Ranking Badge */}
       <div className="absolute top-2 right-2">
-        {index === 0 && (
-          <span className="bg-yellow-500 text-white rounded-full px-2 py-1 text-xs">
-            #🔥 Trending
-          </span>
-        )}
-        {index === 1 && (
-          <span className="bg-red-500 text-white rounded-full px-2 py-1 text-xs">
-            #🚀 Mooning
-          </span>
-        )}
-      </div>
+  {index === 0 && (
+    <span className="bg-green-600 text-white rounded-full px-3 py-1 text-sm font-medium">
+      #1 <span className="hidden sm:inline">Trending</span>
+    </span>
+  )}
+  {index === 1 && (
+    <span className="bg-green-500 text-white rounded-full px-3 py-1 text-sm font-medium">
+      #2 <span className="hidden sm:inline">Rising</span>
+    </span>
+  )}
+</div>
+
 
       {/* Token Information */}
       <div className="flex items-center w-full gap-4">
-        <img
-          src={token.icon || "/images/default-icon.png"}
-          alt={token.name}
-          className="w-12 h-12 rounded-full object-cover"
-        />
+        <div className="relative">
+          <img
+            src={token.icon || "https://i.ibb.co/cCycF9h/pf212.png"}
+            alt={token.name}
+            className="w-14 h-14 rounded-full border-2 border-green-100 group-hover:border-green-300 transition-colors"
+          />
+          {token.source === "moonshot" && (
+            <div className="absolute -top-2 -right-2 bg-green-600 text-white p-1 rounded-full">
+              <FaRocket size={12} />
+            </div>
+          )}
+        </div>
         <div className="flex flex-col">
-          <h4 className="text-lg font-bold text-green-400">
-            {token.name || "Unknown"}
-          </h4>
-          <p className="text-sm text-gray-400">
-            Symbol: {token.symbol || "N/A"}
-          </p>
-          <p className="text-sm text-green-400 mt-1">
-            Market Cap: ${token.marketCap?.toLocaleString() || "N/A"}
+          <h3 className="text-lg font-semibold text-gray-900">{token.name}</h3>
+          <p className="text-sm text-gray-600">Symbol: {token.symbol}</p>
+          <p className="text-sm text-gray-600">
+            Market Cap:{" "}
+            <span className="font-medium text-green-700">
+              ${token.marketCap?.toLocaleString() || "N/A"}
+            </span>
           </p>
         </div>
       </div>
 
       {/* Social and External Links */}
       <div className="flex justify-between items-center mt-4 w-full">
-        <div className="flex gap-3 items-center">
-          {/* Telegram Icon */}
+        <div className="flex gap-4">
           <a
             href={
               (Array.isArray(token.socials) ? token.socials : []).find(
                 (social: any) => social.type === "telegram"
               )?.url || "#"
             }
-            target={
-              (Array.isArray(token.socials) ? token.socials : []).find(
-                (social: any) => social.type === "telegram"
-              )
-                ? "_blank"
-                : undefined
-            }
+            target="_blank"
             rel="noopener noreferrer"
-            className={`${
-              (Array.isArray(token.socials) ? token.socials : []).find(
-                (social: any) => social.type === "telegram"
-              )
-                ? "text-green-400"
-                : "text-gray-500 cursor-not-allowed"
-            }`}
+            className="text-gray-400 hover:text-green-600 transition-colors"
           >
-            <FaTelegram className="w-4 h-4" />
+            <FaTelegram size={18} />
           </a>
-
-          {/* Twitter Icon */}
           <a
             href={
               (Array.isArray(token.socials) ? token.socials : []).find(
                 (social: any) => social.type === "twitter"
               )?.url || "#"
             }
-            target={
-              (Array.isArray(token.socials) ? token.socials : []).find(
-                (social: any) => social.type === "twitter"
-              )
-                ? "_blank"
-                : undefined
-            }
+            target="_blank"
             rel="noopener noreferrer"
-            className={`${
-              (Array.isArray(token.socials) ? token.socials : []).find(
-                (social: any) => social.type === "twitter"
-              )
-                ? "text-blue-400"
-                : "text-gray-500 cursor-not-allowed"
-            }`}
+            className="text-gray-400 hover:text-green-600 transition-colors"
           >
-            <FaTwitter className="w-4 h-4" />
+            <FaTwitter size={18} />
           </a>
-
-          {/* Website Icon */}
           <a
             href={token.website || "#"}
-            target={token.website ? "_blank" : undefined}
+            target="_blank"
             rel="noopener noreferrer"
-            className={`${
-              token.website ? "text-white" : "text-gray-500 cursor-not-allowed"
-            }`}
+            className="text-gray-400 hover:text-green-600 transition-colors"
           >
-            <FaGlobe className="w-4 h-4" />
+            <FaGlobe size={18} />
           </a>
         </div>
 
-        {/* Source Icon */}
         <a
-          href={token.url || "#"}
-          target={token.url ? "_blank" : undefined}
-          rel="noopener noreferrer"
-          className={`flex items-center ${
-            token.url ? "opacity-100" : "opacity-50 cursor-not-allowed"
-          }`}
-        >
-          <img
-            src={
-              token.source === "pumpfun"
-                ? "/images/pump-logo-bg.png"
-                : "https://www.checkdex.xyz/images/logos/moonshot.png"
-            }
-            alt={`${token.source} logo`}
-            className="w-6 h-6"
-          />
-        </a>
+  href={token.url || "#"}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 px-3 py-1 rounded-lg transition-colors bg-transparent sm:bg-green-100 sm:hover:bg-green-200"
+>
+  <img
+    src={
+      token.source === "pumpfun"
+        ? "/images/pump-logo-bg.png"
+        : "https://www.checkdex.xyz/images/logos/moonshot.png"
+    }
+    alt={token.source}
+    className="w-6 h-6 rounded-full"
+  />
+  <span className="text-sm font-medium text-green-700 hidden sm:inline">
+    View on {token.source === "pumpfun" ? "Pump.fun" : "Moonshot"}
+  </span>
+</a>
+
       </div>
     </div>
   );
 
   return (
-    <section
-      className="mt-4 p-4 text-white mx-auto bg-gray-900 rounded-lg shadow-lg"
-      style={{ width: "100%" }}
-    >
-      <h2 className="text-3xl font-bold text-center mb-6 text-white">
-        SPOTLIGHT
-      </h2>
-      <div className="flex justify-center items-center mb-6">
-        <div className="h-1 bg-green-400 w-1/3"></div>
-        <div className="text-green-400 mx-2 text-xl font-bold">✨</div>
-        <div className="h-1 bg-green-400 w-1/3"></div>
+    <main className="min-h-screen w-full">
+      <div className="mb-12 w-full mx-auto px-4">
+        <h1 className="text-3xl pt-9 md:text-4xl font-bold mb-4 text-gray-900 text-center">
+          Spotlight Tokens
+        </h1>
+        <p className="text-gray-600 max-w-2xl mx-auto text-center mb-8">
+          Discover trending tokens with strong social activity and market momentum
+        </p>
+
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <PuffLoader color="#16a34a" size={80} />
+            <p className="ml-4 text-green-700 font-medium">Loading Spotlight...</p>
+          </div>
+        ) : error ? (
+          <p className="text-red-500 text-center text-lg">{error}</p>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {spotlights.map((spotlight, index) =>
+              renderTokenCard(spotlight, index)
+            )}
+          </div>
+        )}
+
+        <FAQ />
+
+        <Link href="/hot_pump" className="fixed bottom-4 right-4 animate-float">
+          <div className="bg-green-600 p-2.5 rounded-full shadow-md text-white text-sm flex items-center gap-2">
+            <FaRocket />
+            <span>Trending Chart</span>
+          </div>
+        </Link>
       </div>
-      {isLoading ? (
-        <div className="flex justify-center items-center">
-          <PuffLoader color="#00FFAB" size={80} />
-        </div>
-      ) : error ? (
-        <p className="text-red-500 text-center text-lg">{error}</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {spotlights.map((spotlight, index) =>
-            renderTokenCard(spotlight, index)
-          )}
-        </div>
-      )}
-      <FAQ />
-    </section>
+    </main>
   );
 };
 
