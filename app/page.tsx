@@ -205,7 +205,7 @@ export default function PumpListingPage() {
   );
 
   return (
-    <main className="min-h-screen p-6">
+    <main className="min-h-screen">
       {loading && (
         <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50 backdrop-blur-sm">
           <div className="text-center">
