@@ -368,7 +368,7 @@ export default function DexCheckerPage() {
     }
   };
   return (
-    <main className="flex flex-col items-center min-h-screen text-gray-900 bg-white">
+    <main className="flex flex-col items-center min-h-screen text-gray-900 ">
       <div className="w-full max-w-4xl p-4 md:p-6 bg-white rounded-xl shadow-lg">
         <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 text-green-700">
           DEX Verification Checker
