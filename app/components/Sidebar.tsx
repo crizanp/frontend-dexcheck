@@ -34,39 +34,37 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     <>
       {/* Sidebar for large screens */}
       <div
-        className={`fixed top-0 left-0 h-screen bg-white z-40 p-4 transition-all duration-300 ${
-          isOpen ? "w-64" : "w-20"
-        } hidden lg:flex flex-col border-r border-gray-300 shadow-lg`}
+        className={`fixed top-0 left-0 h-screen bg-white z-40 p-4 transition-all duration-300 ${isOpen ? "w-64" : "w-20"
+          } hidden lg:flex flex-col border-r border-gray-300 shadow-lg`}
       >
         <div className="flex justify-between items-center">
           {isOpen && (
-            <Image 
-  src="/images/dex.png" 
-  alt="DexCheck Logo" 
-  layout="intrinsic" 
-  width={120} 
-  height={40} 
-/>
+            <Image
+              src="/images/DEX.png"
+              alt="DexCheck Logo"
+              layout="intrinsic"
+              width={120}
+              height={40}
+            />
           )}
-         <button onClick={toggleSidebar} className="transition-transform duration-300">
-  {isOpen ? (
-    <AiOutlineMenu className="text-green-600 text-2xl" />
-  ) : (
-    <img
-      src="/images/uiui-removebg-preview.png"
-      alt="Menu"
-      className="h-10 w-auto"
-    />
-  )}
-</button>
+          <button onClick={toggleSidebar} className="transition-transform duration-300">
+            {isOpen ? (
+              <AiOutlineMenu className="text-green-600 text-2xl" />
+            ) : (
+              <img
+                src="/images/uiui-removebg-preview.png"
+                alt="Menu"
+                className="h-10 w-auto"
+              />
+            )}
+          </button>
 
         </div>
         <nav className="flex flex-col mt-6 space-y-6">
           <Link
             href="/"
-            className={`flex items-center text-gray-800 p-3 rounded-md ${
-              isActive("/") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
-            }`}
+            className={`flex items-center text-gray-800 p-3 rounded-md ${isActive("/") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
+              }`}
           >
             <AiOutlineHome className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
             <span className={`${isOpen ? "block text-base ml-4" : "hidden"}`}>
@@ -75,9 +73,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/dex-check"
-            className={`flex items-center text-gray-800 p-3 rounded-md ${
-              isActive("/dex-check") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
-            }`}
+            className={`flex items-center text-gray-800 p-3 rounded-md ${isActive("/dex-check") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
+              }`}
           >
             <BsShieldCheck className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
             <span className={`${isOpen ? "block text-base ml-4" : "hidden"}`}>
@@ -86,9 +83,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/latest"
-            className={`flex items-center text-gray-800 p-3 rounded-md ${
-              isActive("/latest") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
-            }`}
+            className={`flex items-center text-gray-800 p-3 rounded-md ${isActive("/latest") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
+              }`}
           >
             <AiOutlineFire className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
             <span className={`${isOpen ? "block text-base ml-4" : "hidden"}`}>
@@ -97,9 +93,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/pump"
-            className={`flex items-center text-gray-800 p-3 rounded-md ${
-              isActive("/pump") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
-            }`}
+            className={`flex items-center text-gray-800 p-3 rounded-md ${isActive("/pump") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
+              }`}
           >
             <FaRegChartBar className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
             <span className={`${isOpen ? "block text-base ml-4" : "hidden"}`}>
@@ -108,9 +103,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/hot_pump"
-            className={`flex items-center text-gray-800 p-3 rounded-md ${
-              isActive("/getting-hotter") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
-            }`}
+            className={`flex items-center text-gray-800 p-3 rounded-md ${isActive("/getting-hotter") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
+              }`}
           >
             <AiOutlineRise className={`${isOpen ? "text-2xl" : "text-3xl"}`} />
             <span className={`${isOpen ? "block text-base ml-4" : "hidden"}`}>
@@ -119,9 +113,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/editorialpick"
-            className={`flex items-center text-gray-800 p-3 rounded-md ${
-              isActive("/editorialpick") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
-            }`}
+            className={`flex items-center text-gray-800 p-3 rounded-md ${isActive("/editorialpick") ? "bg-green-100 text-green-600" : "hover:bg-green-100 hover:text-green-600"
+              }`}
           >
             <AiOutlineTrophy
               className={`${isOpen ? "text-2xl" : "text-3xl"}`}
@@ -144,36 +137,32 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </button>
         <Link
           href="/"
-          className={`text-gray-800 flex flex-col items-center ${
-            isActive("/") ? "text-green-600" : "hover:text-green-600"
-          }`}
+          className={`text-gray-800 flex flex-col items-center ${isActive("/") ? "text-green-600" : "hover:text-green-600"
+            }`}
         >
           <AiOutlineHome className="text-2xl pb-2" />
           <span className="text-xs">Home</span>
         </Link>
         <Link
           href="/dex-check"
-          className={`text-gray-800 flex flex-col items-center ${
-            isActive("/dex-check") ? "text-green-600" : "hover:text-green-600"
-          }`}
+          className={`text-gray-800 flex flex-col items-center ${isActive("/dex-check") ? "text-green-600" : "hover:text-green-600"
+            }`}
         >
           <BsShieldCheck className="text-2xl pb-2" />
           <span className="text-xs">DEX Check</span>
         </Link>
         <Link
           href="/latest"
-          className={`text-gray-800 flex flex-col items-center ${
-            isActive("/latest") ? "text-green-600" : "hover:text-green-600"
-          }`}
+          className={`text-gray-800 flex flex-col items-center ${isActive("/latest") ? "text-green-600" : "hover:text-green-600"
+            }`}
         >
           <AiOutlineFire className="text-2xl pb-2" />
           <span className="text-xs">Dex Track</span>
         </Link>
         <Link
           href="/pump"
-          className={`text-gray-800 flex flex-col items-center ${
-            isActive("/pump") ? "text-green-600" : "hover:text-green-600"
-          }`}
+          className={`text-gray-800 flex flex-col items-center ${isActive("/pump") ? "text-green-600" : "hover:text-green-600"
+            }`}
         >
           <FaRegChartBar className="text-2xl pb-2" />
           <span className="text-xs">Pump Track</span>
