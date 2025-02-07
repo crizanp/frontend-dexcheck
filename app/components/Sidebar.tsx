@@ -127,7 +127,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         {/* Footer with Telegram and Twitter icons */}
         <div className="mt-auto flex justify-center space-x-4">
           <a
-            href="https://t.me/your_telegram_channel"
+            href="https://t.me/dexcheckdotfun"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 hover:text-green-600"
@@ -135,7 +135,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             <FaTelegramPlane className="text-2xl" />
           </a>
           <a
-            href="https://twitter.com/your_twitter_channel"
+            href="https://x.com/dexcheckdotfun"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 hover:text-green-600"
