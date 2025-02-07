@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import { FaHandshake, FaBullhorn, FaInfoCircle } from "react-icons/fa";
+import { FaHandshake, FaBullhorn, FaInfoCircle, FaTelegramPlane, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,7 +43,27 @@ export default function Footer() {
                         <a href="https://dexcheck.fun" target="_blank" rel="noopener noreferrer" className="footer-link">Dexcheck.Fun</a>
                         <span>. All rights reserved.</span>
                     </div>
+                    {/* Social Media Links */}
+            
                 </div>
+                <div className="mt-auto flex justify-center space-x-4 my-auto sm:hidden">
+                <a
+                    href="https://t.me/dexcheckdotfun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-800 hover:text-green-600"
+                >
+                    <FaTelegramPlane className="text-2xl" />
+                </a>
+                <a
+                    href="https://x.com/dexcheckdotfun"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-800 hover:text-green-600"
+                >
+                    <FaTwitter className="text-2xl" />
+                </a>
+            </div>
             </div>
             <style jsx>{`
                 .footer {
