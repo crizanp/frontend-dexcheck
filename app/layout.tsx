@@ -70,7 +70,7 @@ export default function RootLayout({
           content="https://dexcheck.fun/images/Logo.png"
         />
         <meta name="theme-color" content="#90EE90" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://dexcheck.fun/images/uiui.jpg" />
 
         {/* JSON-LD Structured Data */}
         <script
