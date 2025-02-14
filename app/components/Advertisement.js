@@ -1,17 +1,31 @@
+import { useState, useEffect } from "react";
 import { useAdvertisement } from "../context/AdvertisementContext";
+import { Copy } from "lucide-react";
 
 export default function Advertisement() {
   const { advertisement, loading } = useAdvertisement();
+  const [copied, setCopied] = useState(false);
+  const contractAddress = "B88rK4Y1o3yqRfhWevNRcLDbSTRaXgkHdsZe39Gfpump";
+
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => setCopied(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [copied]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+  };
 
   if (loading) {
-    return (
-      <div style={{ textAlign: "center", marginTop: "20px" }}>Loading...</div>
-    );
+    return <div className="text-center mt-5 text-gray-500">Loading...</div>;
   }
 
   if (!advertisement) {
     return (
-      <div style={{ textAlign: "center", marginTop: "20px", color: "gray" }}>
+      <div className="text-center mt-5 text-gray-400">
         No active advertisement at the moment.
       </div>
     );
@@ -19,8 +33,19 @@ export default function Advertisement() {
 
   return (
     <div className="advertisement-container flex flex-col items-center pb-4">
-      <div className="announcement-bar text-center p-2 rounded-md font-semibold">
-        CA: $DEXC Launching soon on pump.fun
+      <div className="announcement-bar flex items-center justify-center gap-2 p-2 rounded-md font-semibold text-sm">
+        <span>CA: $DEXC ({contractAddress})</span>
+        <button
+          onClick={handleCopy}
+          className="p-1 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-100 transition relative"
+        >
+          <Copy size={16} className="text-green-600" />
+          {copied && (
+            <span className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded-md shadow-md">
+              Copied!
+            </span>
+          )}
+        </button>
       </div>
       <a
         href={advertisement.linkUrl}
@@ -32,9 +57,9 @@ export default function Advertisement() {
           <img
             src={advertisement.imageUrl}
             alt="Advertisement"
-            className="advertisement-image rounded-lg shadow-lg"
+            className="advertisement-image rounded-lg shadow-lg border border-gray-300"
           />
-          <div className="ads-label absolute top-2 right-2 bg-white text-green-700 text-xs font-bold px-2  rounded border border-green-300">
+          <div className="ads-label absolute top-2 right-2 bg-white text-green-700 text-xs font-bold px-2 rounded border border-green-300">
             Ads
           </div>
         </div>
@@ -46,12 +71,6 @@ export default function Advertisement() {
           color: #14532d;
           border: 1px solid #bbf7d0;
           width: max-content;
-        }
-
-        .advertisement-image {
-          border: 1px solid #e5e7eb;
-          max-width: 100%;
-          display: block;
         }
       `}</style>
     </div>
