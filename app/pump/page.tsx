@@ -40,7 +40,7 @@ export default function PumpTracker() {
   const [showCompleted, setShowCompleted] = useState(true);
   const [copiedMint, setCopiedMint] = useState<string | null>(null);
 
-  const pinnedTokenAddress = "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump";
+  const pinnedTokenAddress = "B88rK4Y1o3yqRfhWevNRcLDbSTRaXgkHdsZe39Gfpump";
 
   useEffect(() => {
     fetchPinnedToken();
