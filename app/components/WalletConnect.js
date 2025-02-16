@@ -35,7 +35,7 @@ const WalletConnect = () => {
 
   const fetchTokenBalance = async (address) => {
     try {
-      const response = await fetch(`/api/splcheck/${address}`);
+      const response = await fetch(`https://dextools1jsseuer32das3.vercel.app/api/splcheck/token-balance/${address}`);
       const data = await response.json();
       setTokenBalance(data.balance);
     } catch (error) {
@@ -113,7 +113,7 @@ const WalletConnect = () => {
             <button
               onClick={connectWallet}
               disabled={connecting}
-              className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50 w-full justify-center"
+              className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50 w-full justify-center"
             >
               <Wallet size={16} />
               {connecting ? "Connecting..." : "Connect Wallet"}
@@ -122,7 +122,7 @@ const WalletConnect = () => {
             <div className="w-full">
               <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-600 font-bold">Wallet:</span>
+                  <span className="text-xs text-gray-600">Wallet:</span>
                   <span className="text-sm font-medium text-gray-600">{`${walletAddress.slice(0, 4)}...${walletAddress.slice(-4)}`}</span>
                   <a
                     href={`https://solscan.io/account/${walletAddress}`}
@@ -142,7 +142,7 @@ const WalletConnect = () => {
               </div>
 
               {/* Token Balance Display - More Compact */}
-              <div className="bg-gradient-to-r from-green-100 to-blue-50 rounded-lg p-4 text-center">
+              <div className="bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-4 text-center">
                 <h3 className="text-gray-700 text-sm mb-1">$DEXC Balance</h3>
                 {tokenBalance !== null ? (
                   Number(tokenBalance) > 0 ? (
@@ -153,7 +153,7 @@ const WalletConnect = () => {
                     <div className="space-y-2">
                       <p className="text-gray-600 text-sm">No tokens yet</p>
                       <a
-                        href="https://raydium.io/swap/?inputMint=sol&outputMint=B88rK4Y1o3yqRfhWevNRcLDbSTRaXgkHdsZe39Gfpump"
+                        href="#"
                         className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md text-sm hover:bg-green-700 transition-colors"
                       >
                         <ShoppingCart size={14} />

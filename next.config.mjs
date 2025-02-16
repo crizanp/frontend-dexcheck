@@ -1,11 +1,6 @@
-// next.config.mjs
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: "out",
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
-  // other configurations...
+  reactStrictMode: true,
 };
 
 export default nextConfig;
