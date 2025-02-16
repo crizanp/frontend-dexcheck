@@ -154,7 +154,7 @@ const WalletConnect = () => {
                     <div className="space-y-2">
                       <p className="text-gray-600 text-sm">No tokens yet</p>
                       <a
-                        href="#"
+                        href="https://dexscreener.com/solana/g9rovzanovdfdvm6xbvhkg58fgezglt23c41rf8rsesz"
                         className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md text-sm hover:bg-green-700 transition-colors"
                       >
                         <ShoppingCart size={14} />
