@@ -33,20 +33,6 @@ export default function Advertisement() {
 
   return (
     <div className="advertisement-container flex flex-col items-center pb-4">
-      <div className="announcement-bar flex items-center justify-center gap-2 p-2 rounded-md font-semibold text-sm">
-        <span>CA: $DEXC ({contractAddress})</span>
-        <button
-          onClick={handleCopy}
-          className="p-1 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-100 transition relative"
-        >
-          <Copy size={16} className="text-green-600" />
-          {copied && (
-            <span className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded-md shadow-md">
-              Copied!
-            </span>
-          )}
-        </button>
-      </div>
       <a
         href={advertisement.linkUrl}
         target="_blank"

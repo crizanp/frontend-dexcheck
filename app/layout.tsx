@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation"; // Import usePathname
 import Sidebar from "./components/Sidebar";
 import "./globals.css";
 import Advertisement from "./components/Advertisement";
 import Footer from "./components/Footer_IGH";
 import { AdvertisementProvider } from "./context/AdvertisementContext";
+import WalletConnect from "./components/WalletConnect";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const pathname = usePathname(); // Get current route
+
+  // Hide Advertisement on specific pages
+  const noAdPages = ["/wallet-tracking"];
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
@@ -21,102 +23,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* SEO Metadata */}
         <title>PumpFun Token Listings - Hot Pump & Moonshot Tokens</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Discover the hottest pump tokens and moonshot projects with detailed insights into their market performance."
-        />
-        <meta
-          name="keywords"
-          content="pump tokens, moonshot tokens, cryptocurrency, meme listing, token listings, active tokens, completed tokens, meme coins, meme supercycle, altcoins, crypto news"
-        />
-        <meta name="author" content="Dexcheck.fun" />
-        <meta name="publisher" content="IGHGROUP" />
-        <meta name="robots" content="index, follow" />
-        <meta name="googlebot" content="index, follow" />
-        <meta
-          property="og:title"
-          content="Pump Token Listings - Hot Pump & Moonshot Tokens"
-        />
-        <meta
-          property="og:description"
-          content="Explore the best pump tokens and completed moonshot tokens with market insights."
-        />
-        <meta
-          property="og:image"
-          content="https://dexcheck.fun/images/Logo.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dexcheck.fun" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="DexCheck" />
-        <meta property="og:updated_time" content="2024-11-23T12:00:00+00:00" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Pump Token Listings - Hot Pump & Moonshot Tokens"
-        />
-        <meta
-          name="twitter:description"
-          content="Explore the best pump tokens and moonshot tokens with market insights."
-        />
-        <meta
-          name="twitter:image"
-          content="https://dexcheck.fun/images/Logo.png"
-        />
-        <meta name="theme-color" content="#90EE90" />
+        <meta name="description" content="Discover the hottest pump tokens and moonshot projects with detailed insights into their market performance." />
         <link rel="icon" href="https://dexcheck.fun/images/uiui.jpg" />
-
-        {/* JSON-LD Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: "Pump Token Listings - Hot Pump & Moonshot Tokens",
-              description:
-                "Discover the hottest pump tokens and moonshot projects with detailed insights into their market performance.",
-              url: "https://dexcheck.fun",
-              publisher: {
-                "@type": "Organization",
-                name: "IGHGroup",
-                logo: {
-                  "@type": "ImageObject",
-                  url: "https://dexcheck.fun/images/Logo.png",
-                },
-              },
-            }),
-          }}
-        ></script>
-
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQCGB2E7N0"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VQCGB2E7N0');
-          `}
-        </script>
-
       </head>
       <body className="bg-gradient-to-br from-green-50 to-white text-white">
         <AdvertisementProvider>
           <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-          <main
-            className={`transition-all duration-300 ${
-              isSidebarOpen ? "lg:ml-64" : "lg:ml-20"
-            } p-2 sm:p-6 min-h-screen pb-16`}
-          >
-            <Advertisement />
-
+          <main className={`transition-all duration-300 ${isSidebarOpen ? "lg:ml-64" : "lg:ml-20"} p-2 sm:p-6 min-h-screen pb-16`}>
+            
+            {/* Show Advertisement only if the page is NOT in `noAdPages` */}
+            {!noAdPages.includes(pathname) && <Advertisement />}
+<WalletConnect/>
             {children}
             <Footer />
           </main>

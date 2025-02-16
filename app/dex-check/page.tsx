@@ -306,11 +306,11 @@ export default function DexCheckerPage() {
       const endpoint =
         chainId === "solana"
           ? `https://api.dexscreener.com/orders/v1/solana/${encodeURIComponent(
-              mint
-            )}`
+            mint
+          )}`
           : `https://api.dexscreener.com/orders/v1/${chainId}/${encodeURIComponent(
-              mint
-            )}`;
+            mint
+          )}`;
 
       // Fetch order status from API
       const response = await fetch(endpoint);
@@ -373,7 +373,7 @@ export default function DexCheckerPage() {
         <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 text-green-700">
           DEX Verification Checker
         </h1>
-        
+
         <div className="flex flex-col items-center bg-gray-50 p-4 rounded-xl space-y-4 border border-gray-200">
           <div className="flex items-center bg-white rounded-full px-4 py-3 w-full shadow-sm border border-gray-300">
             <input
@@ -384,7 +384,7 @@ export default function DexCheckerPage() {
               onKeyPress={handleKeyPress}
               className="bg-transparent outline-none text-gray-900 placeholder-gray-400 flex-grow text-base"
             />
-            <button 
+            <button
               onClick={() => checkDexPayment(mintInput)}
               className="p-2 bg-green-600 rounded-full hover:bg-green-700 transition-colors"
             >
@@ -416,9 +416,8 @@ export default function DexCheckerPage() {
       <div ref={outputRef}>
         {!loading && hasSearched && (
           <motion.div
-            className={`p-4 sm:p-6 rounded-lg text-center w-full mt-4 sm:mt-6 max-w-md border-4 ${
-              isPaid ? "border-green-500" : "border-red-500"
-            }`}
+            className={`p-4 sm:p-6 rounded-lg text-center w-full mt-4 sm:mt-6 max-w-md border-4 ${isPaid ? "border-green-500" : "border-red-500"
+              }`}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -546,8 +545,7 @@ export default function DexCheckerPage() {
                       <>
                         <a
                           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                            `🚀 ${pumpData?.name || "N/A"} (${
-                              tokenData?.symbol || "N/A"
+                            `🚀 ${pumpData?.name || "N/A"} (${tokenData?.symbol || "N/A"
                             }) is now verified on Dexcheck.fun! Check it out now!
 ${pumpData?.website ? ` Website: ${pumpData.website}` : ""}🛡️
 Chain ID: ${tokenData?.chainId?.toUpperCase() || "N/A"}
@@ -566,22 +564,22 @@ CA:${tokenData?.mint || "N/A"}
                           Share
                         </a>
                         <a
-  href={`https://t.me/share/url?url=${encodeURIComponent(
-    pumpData?.website || "https://dexcheck.fun"
-  )}&text=${encodeURIComponent(
-    `🚀 ${pumpData?.name || "N/A"} (${tokenData?.symbol || "N/A"}) is now verified on Dexcheck.fun!`
-  )}`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center px-6 py-2 rounded-lg bg-[#0088cc] text-white font-semibold text-sm hover:bg-[#0077b5] transition duration-300"
->
-  <img
-    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/telegram-white-icon.png"
-    alt="Forward to Telegram"
-    className="w-6 h-6 mr-2"
-  />
-  Forward
-</a>
+                          href={`https://t.me/share/url?url=${encodeURIComponent(
+                            pumpData?.website || "https://dexcheck.fun"
+                          )}&text=${encodeURIComponent(
+                            `🚀 ${pumpData?.name || "N/A"} (${tokenData?.symbol || "N/A"}) is now verified on Dexcheck.fun!`
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center px-6 py-2 rounded-lg bg-[#0088cc] text-white font-semibold text-sm hover:bg-[#0077b5] transition duration-300"
+                        >
+                          <img
+                            src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/telegram-white-icon.png"
+                            alt="Forward to Telegram"
+                            className="w-6 h-6 mr-2"
+                          />
+                          Forward
+                        </a>
 
                       </>
                     )}

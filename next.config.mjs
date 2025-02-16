@@ -2,7 +2,6 @@
 const nextConfig = {
   distDir: "out",
   trailingSlash: true,
-  output: "export", // Add this line
   images: {
     unoptimized: true,
   },

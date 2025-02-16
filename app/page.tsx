@@ -9,6 +9,8 @@ import {
   FaRocket,
 } from "react-icons/fa";
 import PuffLoader from "react-spinners/PuffLoader";
+import WalletConnect from "./components/WalletConnect";
+
 import axios from "axios";
 import FAQ from "./components/Faqhome";
 import Link from "next/link";
@@ -217,7 +219,7 @@ export default function PumpListingPage() {
         </div>
       )}
       <div className="mb-12 max-w-6xl mx-auto text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+        <h1 className="text-3xl md:text-4xl font-bold my-6 text-gray-900">
           Explore Active Memes
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
