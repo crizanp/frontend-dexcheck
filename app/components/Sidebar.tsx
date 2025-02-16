@@ -42,7 +42,6 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             <Image
               src="/images/DEX.png"
               alt="DexCheck Logo"
-              layout="intrinsic"
               width={120}
               height={40}
             />

@@ -21,7 +21,6 @@ export default function Footer() {
 <Image
               src="/images/DEX.png"
               alt="DexCheck Logo"
-              layout="intrinsic"
               width={180}
               height={80}
             />                    </a>
