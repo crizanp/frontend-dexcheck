@@ -37,7 +37,8 @@ const WalletConnect = () => {
     try {
       const response = await fetch(`https://dextools1jsseuer32das3.vercel.app/api/splcheck/token-balance/${address}`);
       const data = await response.json();
-      setTokenBalance(data.balance);
+      // Updated to use totalBalance instead of balance
+      setTokenBalance(data.totalBalance);
     } catch (error) {
       console.error("Error fetching token balance:", error);
     }
