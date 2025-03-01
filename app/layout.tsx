@@ -7,7 +7,7 @@ import "./globals.css";
 import Advertisement from "./components/Advertisement";
 import Footer from "./components/Footer_IGH";
 import { AdvertisementProvider } from "./context/AdvertisementContext";
-import WalletConnect from "./components/WalletConnect";
+// import WalletConnect from "./components/WalletConnect";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             {/* Show Advertisement only if the page is NOT in `noAdPages` */}
             {!noAdPages.includes(pathname) && <Advertisement />}
-<WalletConnect/>
+{/* <WalletConnect/> */}
             {children}
             <Footer />
           </main>

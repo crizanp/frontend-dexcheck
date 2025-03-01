@@ -56,7 +56,7 @@ interface PairData {
 }
 
 const popularTokens = [
-  "B88rK4Y1o3yqRfhWevNRcLDbSTRaXgkHdsZe39Gfpump",
+  "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump",
   "CBdCxKo9QavR9hfShgpEBG3zekorAeD7W1jfq2o3pump",
   "9yNEs1Z96EF4Y5NTufU9FyRAz6jbGzZLBfRQCtssPtAQ",
   "3KAeVfDbU6tZxSD2kqz3Pz6B6f42CW3FdA89GUZ8fw23",
